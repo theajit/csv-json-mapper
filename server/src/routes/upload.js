@@ -20,7 +20,7 @@ router.post('/', upload.single('file'), (req, res, next) => {
     let data, fields;
 
     if (ext === '.csv') {
-      const result = Papa.parse(text, { header: true, skipEmptyLines: true, dynamicTyping: true });
+      const result = Papa.parse(text, { header: true, skipEmptyLines: true, dynamicTyping: false });
       data = result.data;
       fields = result.meta.fields;
     } else {

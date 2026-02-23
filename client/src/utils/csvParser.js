@@ -6,7 +6,8 @@ export function parseCsv(text) {
   const result = Papa.parse(cleanText, {
     header: true,
     skipEmptyLines: true,
-    dynamicTyping: true
+    // Keep values as strings so codes like 01 are preserved.
+    dynamicTyping: false
   });
   return {
     data: result.data,
